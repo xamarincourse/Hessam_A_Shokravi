@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HW4_2"
+             x:Class="HW4_2.MainPage"
+             BackgroundColor="LightGray">
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="LabelCaption" TargetType="Label">
+        <Setter Property="TextColor" Value="Gray"></Setter>
+        <Setter Property="FontSize" Value="Small"></Setter>
+        <Setter Property="Margin" Value="0,20,0,0"></Setter>
+      </Style>
+      <Style x:Key="LabelField" TargetType="Label">
+        <Setter Property="TextColor" Value="Black"></Setter>
+        <Setter Property="FontSize" Value="Medium"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+      </Style>
+      <local:FlightIsDelayedToColorConverter x:Key="DelayedToColorConverter"></local:FlightIsDelayedToColorConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <StackLayout>
+    <ScrollView>
+      <local:DynamicStackLayout ItemsSource="{Binding Flights}">
+        <local:DynamicStackLayout.ItemDataTemplate>
+          <DataTemplate>
+            <Frame Padding="30" Margin="10,10,10,0" CornerRadius="10" BackgroundColor="White" BorderColor="Gray" OutlineColor="Gray" HasShadow="False">
+              <Grid>
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="auto"></RowDefinition>
+                  <RowDefinition Height="auto"></RowDefinition>
+                  <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="3*"></ColumnDefinition>
+                  <ColumnDefinition Width="3*"></ColumnDefinition>
+                  <ColumnDefinition Width="3*"></ColumnDefinition>
+                  <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Start" Source="{Binding AirlineLogoImageSource}" HeightRequest="55"></Image>
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End" VerticalOptions="Center" Text="{Binding StatusText}"
+                       TextColor="{Binding Delayed, Converter={StaticResource DelayedToColorConverter}}" FontSize="Large" FontAttributes="Bold"></Label>
+                <Label Grid.Row="1" Grid.Column="0" Text="Airport" Style="{StaticResource LabelCaption}"></Label>
+                <Label Grid.Row="1" Grid.Column="1" Text="ATA" Style="{StaticResource LabelCaption}"></Label>
+                <Label Grid.Row="1" Grid.Column="2" Text="ETA" Style="{StaticResource LabelCaption}"></Label>
+                <Label Grid.Row="1" Grid.Column="3" Text="Terminal" Style="{StaticResource LabelCaption}"></Label>
+                <Label Grid.Row="2" Grid.Column="0" Text="{Binding ArrivalStation}" Style="{StaticResource LabelField}"></Label>
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding Ata, StringFormat='{0:hh\\:mm}'}" Style="{StaticResource LabelField}"></Label>
+                <Label Grid.Row="2" Grid.Column="2" Text="{Binding Eta, StringFormat='{0:hh\\:mm}'}" Style="{StaticResource LabelField}"></Label>
+                <Label Grid.Row="2" Grid.Column="3" Text="{Binding Terminal}" Style="{StaticResource LabelField}"></Label>
+              </Grid>
+            </Frame>
+          </DataTemplate>
+        </local:DynamicStackLayout.ItemDataTemplate>
+      </local:DynamicStackLayout>
+    </ScrollView>
+  </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HW1;assembly=HW1"
+             x:Class="HW1.MainPage"
+             BackgroundColor="White">
+
+  <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+        ColumnSpacing="0" RowSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="6*"></RowDefinition>
+      <RowDefinition Height="14*"></RowDefinition>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="2*"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+
+    <Grid Grid.Row="0" Grid.Column="0" 
+          VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+          ColumnSpacing="5" RowSpacing="5" Margin="5">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="3*"></RowDefinition>
+        <RowDefinition Height="3*"></RowDefinition>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+
+      <Image  Source="waterfront.jpg" />
+
+      <AbsoluteLayout Grid.Row="0" Grid.Column="0">
+        <BoxView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" 
+                 Color="#127363" CornerRadius="5"></BoxView>
+        <Image AbsoluteLayout.LayoutBounds="0,1,.5,.9" AbsoluteLayout.LayoutFlags="All"
+               Opacity=".3" HorizontalOptions="Start" VerticalOptions="End"
+               Source="{local:ImageResource HW1.Images.HotelSign.png}"></Image>
+        <Label AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" 
+               VerticalOptions="End" HorizontalOptions="End" Margin="15,10"
+               Text="HOTELS" FontSize="Large"
+               TextColor="GhostWhite"></Label>
+      </AbsoluteLayout>
+
+      <AbsoluteLayout Grid.Row="0" Grid.Column="1">
+        <BoxView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" 
+                 Color="#294D84" CornerRadius="5"></BoxView>
+        <Image AbsoluteLayout.LayoutBounds="0,1,.5,.9" AbsoluteLayout.LayoutFlags="All"
+               Opacity=".3" HorizontalOptions="Start" VerticalOptions="End"
+               Source="{local:ImageResource HW1.Images.PlaneSign.png}"></Image>
+        <Label AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" 
+               VerticalOptions="End" HorizontalOptions="End" Margin="15,10"
+               Text="FLIGHTS" FontSize="Large"
+               TextColor="GhostWhite"></Label>
+      </AbsoluteLayout>
+
+      <AbsoluteLayout Grid.Row="1" Grid.Column="0">
+        <BoxView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" 
+                 Color="#813162" CornerRadius="5"></BoxView>
+        <Image AbsoluteLayout.LayoutBounds="0,1,.5,.9" AbsoluteLayout.LayoutFlags="All"
+               Opacity=".3" HorizontalOptions="Start" VerticalOptions="End"
+               Source="{local:ImageResource HW1.Images.CarSign.png}"></Image>
+        <Label AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" 
+               VerticalOptions="End" HorizontalOptions="End" Margin="15,10"
+               Text="CARS" FontSize="Large"
+               TextColor="GhostWhite"></Label>
+      </AbsoluteLayout>
+
+      <AbsoluteLayout Grid.Row="1" Grid.Column="1">
+        <BoxView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" 
+                 Color="#D67B1A" CornerRadius="5"></BoxView>
+        <Image AbsoluteLayout.LayoutBounds="0,1,.5,.9" AbsoluteLayout.LayoutFlags="All"
+               Opacity=".3" HorizontalOptions="Start" VerticalOptions="End"
+               Source="{local:ImageResource HW1.Images.PhoneSign.png}"></Image>
+        <Label AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" 
+               VerticalOptions="End" HorizontalOptions="End" Margin="15,10"
+               Text="ACTIVITIES" FontSize="Large"
+               TextColor="GhostWhite"></Label>
+      </AbsoluteLayout>
+    </Grid>
+
+    <Grid Grid.Row="1" Grid.Column="0" 
+          VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+          ColumnSpacing="5" RowSpacing="5" Padding="5"
+          BackgroundColor="#DFE1E6">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="2*"></RowDefinition>
+        <RowDefinition Height="6*"></RowDefinition>
+        <RowDefinition Height="6*"></RowDefinition>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+
+      <AbsoluteLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Padding="20,0,20,0">
+        <Label AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+               VerticalOptions="Center"
+               Text="Popular Hotels Tonight" FontSize="Medium"
+               TextColor="#2C2C2C"></Label>
+        <Label AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+               VerticalOptions="Center" HorizontalOptions="End"
+               Text="See More" FontSize="Medium"
+               TextColor="#0E7EFF"></Label>
+      </AbsoluteLayout>
+
+      <AbsoluteLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+        <Frame AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+               CornerRadius="5" Padding="0" BackgroundColor="#363636" HasShadow="False">
+          <Image Source="{local:ImageResource HW1.Images.SpacePicture.jpg}"
+                 Aspect="AspectFill" Opacity=".65"></Image>
+        </Frame>
+      </AbsoluteLayout>
+      <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                   VerticalOptions="End" Padding="15,10">
+        <Label Text="LOEWS REGENCY SAN FRANCISCO CITY" FontSize="Large" LineBreakMode="TailTruncation"
+               TextColor="GhostWhite"></Label>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+          <StackLayout Orientation="Horizontal">
+            <Frame BorderColor="GhostWhite" CornerRadius="3"  Padding="5,0" HasShadow="False" BackgroundColor="Transparent">
+              <Label Text="4.6" FontSize="Small" TextColor="GhostWhite"></Label>
+            </Frame>
+            <Label Text="of 5 • guest rating" FontSize="Small" TextColor="GhostWhite"></Label>
+          </StackLayout>
+          <Label Grid.Column="1" Text="$651" FontSize="Small" TextColor="GhostWhite"></Label>
+        </Grid>
+      </StackLayout>
+
+      <AbsoluteLayout Grid.Row="2" Grid.Column="0">
+        <Frame AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+               CornerRadius="5" Padding="0" BackgroundColor="#363636" HasShadow="False">
+          <Image Source="{local:ImageResource HW1.Images.FrancePicture.jpg}"
+                 Aspect="AspectFill" Opacity=".65"></Image>
+        </Frame>
+      </AbsoluteLayout>
+      <StackLayout Grid.Row="2" Grid.Column="0"
+                   VerticalOptions="End" Padding="15,10">
+        <Label Text="ZAMATILA CITY IN THE HEAVENS" FontSize="Large" LineBreakMode="TailTruncation"
+               TextColor="GhostWhite"></Label>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+          <StackLayout Orientation="Horizontal">
+            <Frame BorderColor="GhostWhite" CornerRadius="3" Padding="5,0" HasShadow="False" BackgroundColor="Transparent">
+              <Label Text="4.5" FontSize="Small" TextColor="GhostWhite"></Label>
+            </Frame>
+          </StackLayout>
+          <StackLayout Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Label Text="$605" FontSize="Small" TextColor="GhostWhite"></Label>
+            <Label Text="$697" FontSize="Micro" TextColor="LightGray" TextDecorations="Strikethrough" VerticalOptions="Center"></Label>
+          </StackLayout>
+        </Grid>
+      </StackLayout>
+
+      <AbsoluteLayout Grid.Row="2" Grid.Column="1">
+        <Frame AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+               CornerRadius="5" Padding="0" BackgroundColor="#363636" HasShadow="False">
+          <Image Source="{local:ImageResource HW1.Images.HalePicture.jpg}"
+                 Aspect="AspectFill" Opacity=".65"></Image>
+        </Frame>
+      </AbsoluteLayout>
+      <StackLayout Grid.Row="2" Grid.Column="1"
+                   VerticalOptions="End" Padding="15,10">
+        <Label Text="HOTEL TRANSILVANIA, FIVE STARS" FontSize="Large" LineBreakMode="TailTruncation"
+               TextColor="GhostWhite"></Label>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+          <StackLayout Orientation="Horizontal">
+            <Frame BorderColor="GhostWhite" CornerRadius="3"  Padding="5,0" HasShadow="False" BackgroundColor="Transparent">
+              <Label Text="3.8" FontSize="Small" TextColor="GhostWhite"></Label>
+            </Frame>
+          </StackLayout>
+          <Label Grid.Column="1" Text="$303" FontSize="Small" TextColor="GhostWhite"></Label>
+        </Grid>
+      </StackLayout>
+    </Grid>
+  </Grid>
+
+</ContentPage>

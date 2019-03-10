@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HW2"
+             x:Class="HW2.MainPage"
+             BackgroundColor="White">
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="MenuStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="Micro"></Setter>
+        <Setter Property="TextColor" Value="LightPink"></Setter>
+        <Setter Property="AbsoluteLayout.LayoutBounds" Value=".5,0,1,1"></Setter>
+        <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"></Setter>
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+      </Style>
+      <Style x:Key="ActiveMenuStyle" TargetType="Label" BasedOn="{StaticResource Key=MenuStyle}">
+        <Setter Property="TextColor" Value="White"></Setter>
+      </Style>
+      <local:IsDelayedToIconConverter x:Key="isDelayedToIconConverter"></local:IsDelayedToIconConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="auto"></RowDefinition>
+      <RowDefinition Height="auto"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+    </Grid.RowDefinitions>
+
+    <local:GradientBoxView Direction="LeftToRight" StartColor="#803E97" EndColor="#DB2029" BackgroundColor="Red"></local:GradientBoxView>
+    <StackLayout VerticalOptions="Start" Padding="0,0,0,23">
+      <Grid ColumnSpacing="10" RowSpacing="0" Margin="10">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"></RowDefinition>
+          <RowDefinition Height="3"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="100"></ColumnDefinition>
+          <ColumnDefinition Width="100"></ColumnDefinition>
+          <ColumnDefinition Width="100"></ColumnDefinition>
+          <ColumnDefinition Width="100"></ColumnDefinition>
+          <ColumnDefinition Width="100"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <AbsoluteLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="Center">
+          <Label Text="MY FLIGHTS" Style="{StaticResource ActiveMenuStyle}"></Label>
+        </AbsoluteLayout>
+        <BoxView Grid.Row="1" Grid.Column="0" BackgroundColor="White" Color="White"></BoxView>
+        <AbsoluteLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="Center">
+          <Label Text="ELEVATE" Style="{StaticResource MenuStyle}"></Label>
+        </AbsoluteLayout>
+        <AbsoluteLayout Grid.Row="0" Grid.Column="2" HorizontalOptions="Center">
+          <Label Text="BOOKS" Style="{StaticResource MenuStyle}"></Label>
+        </AbsoluteLayout>
+        <AbsoluteLayout Grid.Row="0" Grid.Column="3" HorizontalOptions="Center">
+          <Label Text="SETTINGS" Style="{StaticResource MenuStyle}"></Label>
+        </AbsoluteLayout>
+        <AbsoluteLayout Grid.Row="0" Grid.Column="4" HorizontalOptions="Center">
+          <Label Text="USER" Style="{StaticResource MenuStyle}"></Label>
+        </AbsoluteLayout>
+      </Grid>
+      <Label Text="It's go time." FontSize="Medium" HorizontalOptions="Center" TextColor="White"></Label>
+      <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+        <Label Text="Boarding " FontSize="Small" TextColor="White"></Label>
+        <Label Text="{Binding Flight.BoardingTime, StringFormat='{0:h:mm tt}'}" FontSize="Small" TextColor="White"></Label>
+        <Label Text="at Gate " FontSize="Small" TextColor="White"></Label>
+        <Label Text="{Binding Flight.BoardingGate}" FontSize="Small" TextColor="White"></Label>
+      </StackLayout>
+      <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+        <Label Text="{Binding Flight.Departure}" FontSize="Large" TextColor="White"></Label>
+        <Label Text="→ " FontSize="Large" TextColor="White"></Label>
+        <Label Text="{Binding Flight.Arrival}" FontSize="Large" TextColor="White"></Label>
+      </StackLayout>
+      <Frame BorderColor="White" OutlineColor="White" HasShadow="False" BackgroundColor="Transparent"
+           CornerRadius="5" Padding="15,7" Margin="0,13" HorizontalOptions="Center">
+        <Label Text="VIEW BOARDING PASS" FontSize="Micro" HorizontalOptions="Center" TextColor="White"></Label>
+      </Frame>
+      <Label Text="All Flights ⮟" FontSize="Small" HorizontalOptions="Center" TextColor="White"></Label>
+    </StackLayout>
+
+    <StackLayout Grid.Row="1">
+      <Grid ColumnSpacing="0" RowSpacing="0" Padding="20,12">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="2*"></ColumnDefinition>
+          <ColumnDefinition Width="2*"></ColumnDefinition>
+          <ColumnDefinition Width="2*"></ColumnDefinition>
+          <ColumnDefinition Width="5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Column="0">
+          <Label Text="TERM" FontSize="Micro" TextColor="#DB1C1C"></Label>
+          <Label Text="{Binding Flight.Term}" FontSize="Small" TextColor="Black"></Label>
+        </StackLayout>
+        <StackLayout Grid.Column="1">
+          <Label Text="GATE" FontSize="Micro" TextColor="#DB1C1C"></Label>
+          <Label Text="{Binding Flight.Gate}" FontSize="Small" TextColor="Black"></Label>
+        </StackLayout>
+        <StackLayout Grid.Column="2">
+          <Label Text="SEAT" FontSize="Micro" TextColor="#DB1C1C"></Label>
+          <Label Text="{Binding Flight.Seat}" FontSize="Small" TextColor="Black"></Label>
+        </StackLayout>
+        <StackLayout Grid.Column="3">
+          <Label Text="DEPART" FontSize="Micro" TextColor="#DB1C1C"></Label>
+          <StackLayout Orientation="Horizontal">
+            <Label Text="{Binding Flight.DepartureTime, StringFormat='{0:H:mmtt}'}" FontSize="Small" TextColor="Black"></Label>
+            <Image Source="{Binding Flight.IsDelayed, Converter={StaticResource isDelayedToIconConverter}}" HeightRequest="20"></Image>
+            <Label Text="{Binding Flight.IsDelayedText}" FontSize="Small" TextColor="{Binding Flight.IsDelayedColor}"></Label>
+          </StackLayout>
+        </StackLayout>
+      </Grid>
+      <BoxView Color="#F3F3F3" BackgroundColor="#F3F3F3" HeightRequest="2" HorizontalOptions="FillAndExpand"></BoxView>
+    </StackLayout>
+
+    <ScrollView Grid.Row="2">
+      <local:DynamicStackLayout ItemsSource="{Binding MenuItems}">
+        <local:DynamicStackLayout.ItemDataTemplate>
+          <DataTemplate>
+            <StackLayout>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="55"></ColumnDefinition>
+                  <ColumnDefinition Width="*"></ColumnDefinition>
+                  <ColumnDefinition Width="50"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="{Binding ImageSource}" WidthRequest="28" HeightRequest="28" HorizontalOptions="End" VerticalOptions="Center" Margin="10"></Image>
+                <Label Grid.Column="1" Text="{Binding Title}" FontSize="Micro" TextColor="Black" VerticalOptions="Center"></Label>
+                <Label Grid.Column="2" Text="❯" FontSize="Medium" TextColor="LightGray" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+              </Grid>
+              <BoxView Color="#F3F3F3" BackgroundColor="#F3F3F3" HeightRequest="2" HorizontalOptions="FillAndExpand"></BoxView>
+            </StackLayout>
+          </DataTemplate>
+        </local:DynamicStackLayout.ItemDataTemplate>
+      </local:DynamicStackLayout>
+    </ScrollView>
+
+  </Grid>
+
+</ContentPage>

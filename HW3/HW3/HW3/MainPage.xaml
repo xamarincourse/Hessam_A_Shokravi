@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HW3"
+             x:Class="HW3.MainPage">
+
+  <StackLayout>
+    <Label x:Name="textView" Text="Push something!" FontSize="Large" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"></Label>
+    <Button Text="Change the text" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Clicked="ChangeTextButtonClicked"></Button>
+    <Button Text="Change the view" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Clicked="ChangeViewButtonClicked"></Button>
+  </StackLayout>
+
+</ContentPage>

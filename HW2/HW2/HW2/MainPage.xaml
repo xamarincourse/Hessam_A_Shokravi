@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HW2"
+             x:Class="HW2.MainPage"
+             BackgroundColor="White">
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="MenuStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="Micro"></Setter>
+        <Setter Property="TextColor" Value="LightPink"></Setter>
+        <Setter Property="AbsoluteLayout.LayoutBounds" Value=".5,0,1,1"></Setter>
+        <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"></Setter>
+        <Setter Property="HorizontalOptions" Value="Center"></Setter>
+      </Style>
+      <Style x:Key="ActiveMenuStyle" TargetType="Label" BasedOn="{StaticResource Key=MenuStyle}">
+        <Setter Property="TextColor" Value="White"></Setter>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="auto"></RowDefinition>
+      <RowDefinition Height="auto"></RowDefinition>
+      <RowDefinition Height="*"></RowDefinition>
+    </Grid.RowDefinitions>
+
+    <local:GradientBoxView Direction="LeftToRight" StartColor="#803E97" EndColor="#DB2029" BackgroundColor="Red"></local:GradientBoxView>
+    <StackLayout VerticalOptions="Start" Padding="0,0,0,23">
+      <Grid ColumnSpacing="10" RowSpacing="0" Margin="10">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"></RowDefinition>
+          <RowDefinition Height="3"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="100"></ColumnDefinition>
+          <ColumnDefinition Width="100"></ColumnDefinition>
+          <ColumnDefinition Width="100"></ColumnDefinition>
+          <ColumnDefinition Width="100"></ColumnDefinition>
+          <ColumnDefinition Width="100"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <AbsoluteLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="Center">
+          <Label Text="MY FLIGHTS" Style="{StaticResource ActiveMenuStyle}"></Label>
+        </AbsoluteLayout>
+        <BoxView Grid.Row="1" Grid.Column="0" BackgroundColor="White" Color="White"></BoxView>
+        <AbsoluteLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="Center">
+          <Label Text="ELEVATE" Style="{StaticResource MenuStyle}"></Label>
+        </AbsoluteLayout>
+        <AbsoluteLayout Grid.Row="0" Grid.Column="2" HorizontalOptions="Center">
+          <Label Text="BOOKS" Style="{StaticResource MenuStyle}"></Label>
+        </AbsoluteLayout>
+        <AbsoluteLayout Grid.Row="0" Grid.Column="3" HorizontalOptions="Center">
+          <Label Text="SETTINGS" Style="{StaticResource MenuStyle}"></Label>
+        </AbsoluteLayout>
+        <AbsoluteLayout Grid.Row="0" Grid.Column="4" HorizontalOptions="Center">
+          <Label Text="USER" Style="{StaticResource MenuStyle}"></Label>
+        </AbsoluteLayout>
+      </Grid>
+      <Label Text="It's go time." FontSize="Medium" HorizontalOptions="Center" TextColor="White"></Label>
+      <Label Text="Boarding 8:20 PM at gate B79" FontSize="Small" HorizontalOptions="Center" TextColor="White"></Label>
+      <Label Text="SFO → LAX" FontSize="Large" HorizontalOptions="Center" TextColor="White"></Label>
+      <Frame BorderColor="White" OutlineColor="White" HasShadow="False" BackgroundColor="Transparent"
+           CornerRadius="5" Padding="15,7" Margin="0,13" HorizontalOptions="Center">
+        <Label Text="VIEW BOARDING PASS" FontSize="Micro" HorizontalOptions="Center" TextColor="White"></Label>
+      </Frame>
+      <Label Text="All Flights ⮟" FontSize="Small" HorizontalOptions="Center" TextColor="White"></Label>
+    </StackLayout>
+
+    <StackLayout Grid.Row="1">
+      <Grid ColumnSpacing="0" RowSpacing="0" Padding="20,12">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="2*"></ColumnDefinition>
+          <ColumnDefinition Width="2*"></ColumnDefinition>
+          <ColumnDefinition Width="2*"></ColumnDefinition>
+          <ColumnDefinition Width="5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Column="0">
+          <Label Text="TERM" FontSize="Micro" TextColor="#DB1C1C"></Label>
+          <Label Text="1" FontSize="Small" TextColor="Black"></Label>
+        </StackLayout>
+        <StackLayout Grid.Column="1">
+          <Label Text="GATE" FontSize="Micro" TextColor="#DB1C1C"></Label>
+          <Label Text="A5" FontSize="Small" TextColor="Black"></Label>
+        </StackLayout>
+        <StackLayout Grid.Column="2">
+          <Label Text="SEAT" FontSize="Micro" TextColor="#DB1C1C"></Label>
+          <Label Text="5A" FontSize="Small" TextColor="Black"></Label>
+        </StackLayout>
+        <StackLayout Grid.Column="3">
+          <Label Text="DEPART" FontSize="Micro" TextColor="#DB1C1C"></Label>
+          <StackLayout Orientation="Horizontal">
+            <Label Text="1:00PM" FontSize="Small" TextColor="Black"></Label>
+            <Label Text="🗸 ON-TIME" FontSize="Small" TextColor="Green"></Label>
+          </StackLayout>
+        </StackLayout>
+      </Grid>
+      <BoxView Color="#F3F3F3" BackgroundColor="#F3F3F3" HeightRequest="2" HorizontalOptions="FillAndExpand"></BoxView>
+    </StackLayout>
+
+    <ScrollView Grid.Row="2">
+      <StackLayout>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="55"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+          <Image Grid.Column="0" Source="{local:ImageResource HW2.Images.PlaneIcon.png}" WidthRequest="28" HeightRequest="28" HorizontalOptions="End" VerticalOptions="Center" Margin="10"></Image>
+          <Label Grid.Column="1" Text="FLIGHT DETAILS" FontSize="Micro" TextColor="Black" VerticalOptions="Center"></Label>
+          <Label Grid.Column="2" Text="❯" FontSize="Medium" TextColor="LightGray" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <BoxView Color="#F3F3F3" BackgroundColor="#F3F3F3" HeightRequest="2" HorizontalOptions="FillAndExpand"></BoxView>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="55"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+          <Image Grid.Column="0" Source="{local:ImageResource HW2.Images.ChairIcon.png}" WidthRequest="28" HeightRequest="28" HorizontalOptions="End" VerticalOptions="Center" Margin="10"></Image>
+          <Label Grid.Column="1" Text="UPGRADE SEAT" FontSize="Micro" TextColor="Black" VerticalOptions="Center"></Label>
+          <Label Grid.Column="2" Text="❯" FontSize="Medium" TextColor="LightGray" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <BoxView Color="#F3F3F3" BackgroundColor="#F3F3F3" HeightRequest="2" HorizontalOptions="FillAndExpand"></BoxView>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="55"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+          <Image Grid.Column="0" Source="{local:ImageResource HW2.Images.BagIcon.png}" WidthRequest="28" HeightRequest="28" HorizontalOptions="End" VerticalOptions="Center" Margin="10"></Image>
+          <Label Grid.Column="1" Text="CHECK BAGS" FontSize="Micro" TextColor="Black" VerticalOptions="Center"></Label>
+          <Label Grid.Column="2" Text="❯" FontSize="Medium" TextColor="LightGray" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <BoxView Color="#F3F3F3" BackgroundColor="#F3F3F3" HeightRequest="2" HorizontalOptions="FillAndExpand"></BoxView>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="55"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+          <Image Grid.Column="0" Source="{local:ImageResource HW2.Images.EntertainmentIcon.png}" WidthRequest="28" HeightRequest="28" HorizontalOptions="End" VerticalOptions="Center" Margin="10"></Image>
+          <Label Grid.Column="1" Text="ENTERTAINMENT" FontSize="Micro" TextColor="Black" VerticalOptions="Center"></Label>
+          <Label Grid.Column="2" Text="❯" FontSize="Medium" TextColor="LightGray" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <BoxView Color="#F3F3F3" BackgroundColor="#F3F3F3" HeightRequest="2" HorizontalOptions="FillAndExpand"></BoxView>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="55"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+          <Image Grid.Column="0" Source="{local:ImageResource HW2.Images.FilmIcon.png}" WidthRequest="28" HeightRequest="28" HorizontalOptions="End" VerticalOptions="Center" Margin="10"></Image>
+          <Label Grid.Column="1" Text="WATCH MOVIES" FontSize="Micro" TextColor="Black" VerticalOptions="Center"></Label>
+          <Label Grid.Column="2" Text="❯" FontSize="Medium" TextColor="LightGray" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <BoxView Color="#F3F3F3" BackgroundColor="#F3F3F3" HeightRequest="2" HorizontalOptions="FillAndExpand"></BoxView>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="55"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+          <Image Grid.Column="0" Source="{local:ImageResource HW2.Images.TicketsIcon.png}" WidthRequest="28" HeightRequest="28" HorizontalOptions="End" VerticalOptions="Center" Margin="10"></Image>
+          <Label Grid.Column="1" Text="TICKETS" FontSize="Micro" TextColor="Black" VerticalOptions="Center"></Label>
+          <Label Grid.Column="2" Text="❯" FontSize="Medium" TextColor="LightGray" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <BoxView Color="#F3F3F3" BackgroundColor="#F3F3F3" HeightRequest="2" HorizontalOptions="FillAndExpand"></BoxView>
+      </StackLayout>
+    </ScrollView>
+  </Grid>
+
+</ContentPage>

@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="hotel-sign.png" />
+    <None Remove="Images\CarSign.png" />
+    <None Remove="Images\FrancePicture.jpg" />
+    <None Remove="Images\HalePicture.jpg" />
+    <None Remove="Images\HotelSign.png" />
+    <None Remove="Images\PhoneSign.png" />
+    <None Remove="Images\PlaneSign.png" />
+    <None Remove="Images\SpacePicture.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\CarSign.png" />
+    <EmbeddedResource Include="Images\FrancePicture.jpg" />
+    <EmbeddedResource Include="Images\HalePicture.jpg" />
+    <EmbeddedResource Include="Images\HotelSign.png" />
+    <EmbeddedResource Include="Images\PhoneSign.png" />
+    <EmbeddedResource Include="Images\PlaneSign.png" />
+    <EmbeddedResource Include="Images\SpacePicture.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+  </ItemGroup>
+</Project>
