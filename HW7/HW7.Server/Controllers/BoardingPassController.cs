@@ -18,6 +18,7 @@ namespace HW7.Server.Controllers
     [HttpGet("{id}")]
     public ActionResult<BoardingPass> Get(string id)
     {
+      Thread.Sleep(4000);
       if (id == "12345") return new BoardingPass
       {
         BoardingTime = new DateTime(2019, 1, 1, 20, 20, 0),
@@ -28,7 +29,7 @@ namespace HW7.Server.Controllers
         Gate = "A5",
         Seat = "5A",
         DepartureTime = new DateTime(2019, 1, 1, 13, 0, 0),
-        IsDelayed = false
+        IsDelayed = true
       };
       throw new Exception("Boarding pass has not been found.");
     }

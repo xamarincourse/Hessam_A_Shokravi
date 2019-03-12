@@ -10,6 +10,8 @@ namespace HW2
   {
     public MainPageViewModel()
     {
+      IsLoading = IsLoaded = false;
+
       BoardingPass = new BoardingPass
       {
         BoardingTime = new DateTime(2019, 1, 1, 0, 0, 0),
@@ -23,7 +25,8 @@ namespace HW2
         IsDelayed = false
       };
 
-      BoardingPass = BoardingPassService.GetAsync("12345").Result;
+      //BoardingPass = BoardingPassService.GetAsync("12345").Result;
+      //IsLoaded = true;
 
       MenuItems = new List<MenuItem>
       {
@@ -60,11 +63,28 @@ namespace HW2
       };
     }
 
+    public bool IsLoading { get; set; }
+    public bool IsLoaded { get; set; }
+
     public BoardingPass BoardingPass { get; set; }
     public string BoardingPassIsDelayedText { get { return BoardingPass.IsDelayed ? "DELAYED" : "ON-TIME"; } }
     public Color BoardingPassIsDelayedColor { get { return BoardingPass.IsDelayed ? Color.Red : Color.Green; } }
 
     public List<MenuItem> MenuItems { get; set; }
+
+    public MainPageViewModel Clone
+    {
+      get
+      {
+        return new MainPageViewModel
+        {
+          IsLoading = IsLoading,
+          IsLoaded = IsLoaded,
+          BoardingPass = BoardingPass,
+          MenuItems = MenuItems
+        };
+      }
+    }
 
     public class MenuItem
     {

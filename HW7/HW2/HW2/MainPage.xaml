@@ -104,12 +104,13 @@
         </StackLayout>
         <StackLayout Grid.Column="3">
           <Label Text="DEPART" FontSize="Micro" TextColor="#DB1C1C"></Label>
-          <StackLayout Orientation="Horizontal">
+          <StackLayout IsVisible="{Binding IsLoaded}" Orientation="Horizontal">
             <Label Text="{Binding BoardingPass.DepartureTime, StringFormat='{0:H:mmtt}'}" FontSize="Small" TextColor="Black"></Label>
             <Image Source="{Binding BoardingPass.IsDelayed, Converter={StaticResource isDelayedToIconConverter}}" HeightRequest="20"></Image>
             <Label Text="{Binding BoardingPassIsDelayedText}" FontSize="Small" TextColor="{Binding BoardingPassIsDelayedColor}"></Label>
           </StackLayout>
         </StackLayout>
+        <Button Grid.Column="3" HorizontalOptions="End" VerticalOptions="Start" Text="Load" Clicked="LoadButtonClickHandler" BackgroundColor="White" CornerRadius="5" BorderColor="Blue" BorderWidth="2" TextColor="Blue"></Button>
       </Grid>
       <BoxView Color="#F3F3F3" BackgroundColor="#F3F3F3" HeightRequest="2" HorizontalOptions="FillAndExpand"></BoxView>
     </StackLayout>
@@ -135,6 +136,11 @@
         </local:DynamicStackLayout.ItemDataTemplate>
       </local:DynamicStackLayout>
     </ScrollView>
+
+    <AbsoluteLayout Grid.RowSpan="3" IsVisible="{Binding IsLoading}">
+      <BoxView AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="Black" Opacity="0.8"></BoxView>
+      <Label AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" VerticalOptions="Center" HorizontalOptions="Center" Text="Loading, please wait..." TextColor="White" FontSize="Medium"></Label>
+    </AbsoluteLayout>
 
   </Grid>
 

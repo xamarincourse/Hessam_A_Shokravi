@@ -18,6 +18,7 @@ namespace HW2
         BaseAddress = new Uri("http://localhost:59638/"),
         Timeout = TimeSpan.FromSeconds(30)
       };
+
       using (var response = await client.GetAsync("api/BoardingPass/" + id).ConfigureAwait(false))
       {
         response.EnsureSuccessStatusCode();
